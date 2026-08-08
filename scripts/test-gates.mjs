@@ -971,6 +971,31 @@ try {
       `exit ${wrongNameRun.code}: ${wrongNameRun.out.slice(0, 300)}`,
     );
 
+    // CHECK B regression: prose containing a word like "important" that
+    // starts with the literal substring "import" must NOT be mistaken for an
+    // `import` statement just because a `@scope/other-package` reference sits
+    // on the same line. This is the exact shape that tripped the gate in
+    // packages/assets/README.md (worked around by rewording; see PR #53) —
+    // a bare `\bimport` (no trailing boundary) matches "important" too.
+    const proseImportant = writePackage(
+      "prose-important",
+      `export const Foo = 1;\n`,
+      [
+        "# prose-important",
+        "",
+        `See \`${FIXTURE_SCOPE}/other-package\`'s README, "The single most important constraint", for the fuller argument.`,
+        "",
+        "Mentions `Foo`.",
+        "",
+      ].join("\n"),
+    );
+    const proseImportantRun = run("node", [READMEPARITY, proseImportant, "--json"]);
+    check(
+      "CHECK B does not flag prose containing \"important\" alongside an unrelated @scope reference",
+      proseImportantRun.code === 0,
+      `exit ${proseImportantRun.code}: ${proseImportantRun.out.slice(0, 300)}`,
+    );
+
     // CHECK C: the API table documents an export that does not exist.
     const phantom = writePackage(
       "phantom",

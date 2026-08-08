@@ -182,7 +182,14 @@ const undocumentedTypes = typeExports.filter((name) => !readmeSrc.includes(name)
 // (describing a dependency, say), and that sentence is not something anyone
 // copy-pastes into a terminal. Only import/require/install lines are checked.
 const scopedNameRe = new RegExp(`${scope.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/[A-Za-z0-9._-]+`, "g");
-const usageLineRe = /\b(?:import|require\()|(?:npm|pnpm|yarn)\s+(?:install|add|i)\b/i;
+// The `import` alternative needs a trailing boundary too, not just a leading
+// one: a bare `\bimport` matches the first six letters of "important",
+// "importance", "imported", etc., so ordinary prose ("...the single most
+// important constraint...") sitting on the same line as an `@scope/other`
+// reference was tripping this check. `(?![a-zA-Z])` requires the character
+// after "import" not continue the word, while still matching real usage
+// shapes: `import { x } from "..."`, `import * as x`, and `import(...)`.
+const usageLineRe = /\bimport(?![a-zA-Z])|\brequire\(|(?:npm|pnpm|yarn)\s+(?:install|add|i)\b/i;
 
 const wrongNameFindings = [];
 readmeLines.forEach((line, i) => {

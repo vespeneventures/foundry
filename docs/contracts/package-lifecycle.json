@@ -3,7 +3,15 @@
   "packages": [
     {
       "name": "@vespeneventures/auth",
-      "status": "published"
+      "status": "deprecated",
+      "replacement": {
+        "name": "@vespeneventures/bouncer",
+        "range": "^0.1.0"
+      },
+      "deprecatedOn": "2026-08-22",
+      "decision": "https://github.com/vespeneventures/foundry/issues/458",
+      "migration": "packages/auth/README.md#migration",
+      "forwardsToReplacement": false
     },
     {
       "name": "@vespeneventures/bouncer",
@@ -36,7 +44,15 @@
     },
     {
       "name": "@vespeneventures/consent",
-      "status": "published"
+      "status": "deprecated",
+      "replacement": {
+        "name": "@vespeneventures/butler",
+        "range": "^0.1.0"
+      },
+      "deprecatedOn": "2026-08-22",
+      "decision": "https://github.com/vespeneventures/foundry/issues/458",
+      "migration": "packages/consent/README.md#migration",
+      "forwardsToReplacement": false
     },
     {
       "name": "@vespeneventures/controller",

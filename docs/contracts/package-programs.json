@@ -196,8 +196,8 @@
       "name": "@vespeneventures/auth",
       "state": "published",
       "shipsNoGate": {
-        "issue": 458,
-        "reason": "Donor to the unbuilt `bouncer` role -- who you are, what you can do, and how that changes. It addresses one person, so it owes a gate; nobody has built one, which is why no consumer's CI can check it at all. Resolved by the cut of the interaction roles, then issue #464 retiring this donor."
+        "issue": 464,
+        "reason": "Deprecated donor to the published `bouncer` role -- who you are, what you can do, and how that changes. The role now owns the gate; this retained package has none and remains installable only while consumers migrate under issue #464."
       },
       "gaps": [
         {
@@ -211,8 +211,8 @@
       "name": "@vespeneventures/consent",
       "state": "published",
       "shipsNoGate": {
-        "issue": 458,
-        "reason": "Donor to the unbuilt `butler` role. It ships the three-state model that its sibling donor's fail-open contradicts, and no `bin` from which either could be checked. Resolved by the cut of the interaction roles, then issue #464 retiring this donor."
+        "issue": 464,
+        "reason": "Deprecated donor to the published `butler` and `giver` roles. The roles now own the gate and enforcement split; this retained package has none and remains installable only while consumers migrate under issue #464."
       },
       "gaps": [
         {
@@ -226,8 +226,8 @@
       "name": "@vespeneventures/comms",
       "state": "published",
       "shipsNoGate": {
-        "issue": 458,
-        "reason": "Donor to the unbuilt interaction roles, split across more than one of them. Its missing `bin` is the founding measurement behind decision 11: src/dispatcher.ts treats an unwired policy as `allow`, and there is no CLI anywhere that could fail on it. Resolved by the cut of the interaction roles, then issue #464 retiring this donor."
+        "issue": 464,
+        "reason": "Program C donor whose `./inbound` surface overlaps the published `butler` role. The package still has no `bin`; issue #464 tracks removal of that overlap, while the remaining transport surface awaits a separate role decision rather than being declared a permanent primitive."
       },
       "gaps": [
         {

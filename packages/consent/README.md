@@ -8,6 +8,16 @@ no analytics or tag-manager integration, and no jurisdiction logic. An
 optional `./web` subpath adds an SSR-safe gate component and preference-
 management hooks, built entirely on this package's pure functions.
 
+## Migration
+
+This package is deprecated. Its responsibilities split deliberately: move a
+person's consent record and current standing instructions to
+[`@vespeneventures/butler`](../butler) at `^0.1.0`, and move enforcement plus
+owed delivery to [`@vespeneventures/giver`](../giver) at `^0.1.1`. Existing
+published `consent` versions remain available while consumers migrate, but no
+forwarding stub will ship; make each responsibility explicit at the new
+boundary.
+
 ```bash
 npm install @vespeneventures/consent
 ```
@@ -70,7 +80,7 @@ if (evaluation.status === "absent" || evaluation.status === "stale") {
 reliance on ambient state. Given the same `current`, `action`, and `now` it
 always returns the same `record` and `auditEvent`; the caller's
 `ConsentStoragePort` and `ConsentAuditLedger` perform the actual writes. This
-mirrors the split `packages/comms` already uses for
+mirrors the split `packages/butler` uses for
 `decideInboundAdmission`/`admitInboundEvent`.
 
 ## The three consent states, and why "stale" is a fourth thing

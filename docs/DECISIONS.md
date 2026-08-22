@@ -415,17 +415,17 @@ the primitive tier is the `foundation` programme, marked `"tier": "primitive"`,
 with `domain` as its first member — and graded by
 `scripts/check-package-programs.mjs`, which already owned every package's
 programme membership and lifecycle state. Program C's four roles are named and
-their questions fixed here; none of them is cut, and this decision creates no
-package.
+their questions fixed here; all four are now published, and this decision
+creates no package.
 
 Decisions 9 and 10 wrote down half of what every package here is actually held
 to: it names a doer rather than a thing, and answers one question only it can
 answer. The other half was never written down and is near-universal in the code
 anyway — a role package ships a gate behind a `bin`, so a consumer's own CI can
-fail on it. Of the fourteen live packages in this tree, ten do. `auth`, `comms`
-and `consent` do not, because nobody has built one. `domain` does not, because
-it is a primitive that correctly has none. From outside the tree those two
-situations are the same thing: an absent `bin`.
+fail on it. The retained donors `auth`, `comms` and `consent` do not; their
+Program C replacements own the gates. `domain` does not, because the current
+contract declares it a primitive. From outside the tree those two situations
+are the same thing: an absent `bin`.
 
 > A package either belongs to a program — in which case it names a doer,
 > answers one question only it answers, and ships a gate behind a `bin` — or it
@@ -440,15 +440,14 @@ sign."
 
 ### The programs, and who each addresses
 
-A program is identified by its addressee, not by its subject matter. Two are
-cut; a third is named with its roles unbuilt; a fourth is named so its absence
-is a decision rather than an oversight.
+A program is identified by its addressee, not by its subject matter. Three are
+cut; a fourth is named so its absence is a decision rather than an oversight.
 
 | program | addresses | packages |
 | --- | --- | --- |
 | operation | a repository | `controller`, `inspector`, `builder`, `locksmith`, `integrator`, `observer` (decision 9) |
 | expression | an audience | `strategist`, `writer`, `designer`, `publisher` (decision 10) |
-| interaction | one person | `bouncer`, `butler`, `giver`, `keeper` — not cut |
+| interaction | one person | `bouncer`, `butler`, `giver`, `keeper` (issue #458) |
 | transaction | an organisation under agreement | not cut, and nothing here waits on it |
 
 ### The primitive tier
@@ -463,14 +462,12 @@ right is the consumer's judgment, not this package's.
 
 Membership is declared, never inferred from a missing `bin`, and the two kinds
 of declaration are deliberately not interchangeable. A primitive declares
-`shipsNoGate` with `permanent: true`: there is no work to track. `auth`,
-`comms` and `consent` declare the same field with an **issue**, because they
-address one person, they owe a gate, and nobody has built it — a countdown,
-exactly like a `gaps` entry, and the gate refuses a permanent claim from a
-package that belongs to a programme. The three packages this decision is
-derived from therefore appear in the contract as what they are, rather than
-being absent from it: a decision whose motivating case is missing from its own
-machine-readable half describes an aspiration rather than the tree.
+`shipsNoGate` with `permanent: true`: there is no work to track. `auth` and
+`consent` now declare the same field with their retirement issue because they
+are deprecated donors whose Program C replacements own the gates. `comms`
+remains a donor with an issue while its split is unresolved. These countdowns
+remain distinct from a permanent primitive claim, and the gate refuses a
+permanent claim from a package that belongs to a programme.
 
 ### Program C's four roles
 

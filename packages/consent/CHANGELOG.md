@@ -38,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `invalidateDenialOnPolicyBump` policy for the denial-invalidation open
   question left in issue #178.
 - `decideConsentChange()` — pure grant/deny/withdraw decision core, kept
-  separate from I/O, mirroring `decideInboundAdmission` in `@vespeneventures/comms`.
+  separate from I/O, mirroring `decideInboundAdmission` in `@vespeneventures/butler`.
 - `recordReopened()` and `recordPolicySuperseded()` — pure audit-event
   builders for reopening a preference center and for a policy bump
   invalidating a stored answer.

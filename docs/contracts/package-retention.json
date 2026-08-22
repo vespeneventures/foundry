@@ -3,6 +3,16 @@
   "schemaVersion": 1,
   "packages": [
     {
+      "name": "@vespeneventures/auth",
+      "reason": "Deprecated into @vespeneventures/bouncer per issue #458. Kept live so a consumer already pinned to a published auth version keeps resolving it while migrating. No forwarding stub ships, deliberately: a stub would keep the old name importable and a supersession check could then never reach zero.",
+      "reviewBy": "2026-11-22"
+    },
+    {
+      "name": "@vespeneventures/consent",
+      "reason": "Deprecated into @vespeneventures/butler and @vespeneventures/giver per issue #458. Kept live so a consumer already pinned to a published consent version keeps resolving it while migrating. No forwarding stub ships, deliberately: a stub would keep the old name importable and a supersession check could then never reach zero.",
+      "reviewBy": "2026-11-22"
+    },
+    {
       "name": "@vespeneventures/copy",
       "reason": "Deprecated into @vespeneventures/writer per docs/DECISIONS.md#10-recutting-the-expression-surface-into-role-shaped-packages. Kept live so a consumer already pinned to a published copy version keeps resolving it while migrating. No forwarding stub ships, deliberately: a stub would keep the old name importable and a supersession check could then never reach zero.",
       "reviewBy": "2026-11-21"

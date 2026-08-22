@@ -2,7 +2,7 @@ import type { ConsentAction, ConsentAuditEvent, ConsentCategory, ConsentPolicyVe
 
 /**
  * The pure decision core, kept separate from any I/O — the same separation
- * `decideInboundAdmission` uses in `packages/comms`. Produces the new
+ * `decideInboundAdmission` uses in `packages/butler`. Produces the new
  * record and its audit event; the caller's `ConsentStoragePort` and
  * `ConsentAuditLedger` perform the actual writes.
  *

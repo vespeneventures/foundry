@@ -5,6 +5,15 @@ optional Clerk adapters. Import only the subpath your application uses: the
 provider-neutral root and agent modules do not load Clerk, React, Next.js, or
 server-only webhook code.
 
+## Migration
+
+This package is deprecated. New authorization work belongs in
+[`@vespeneventures/bouncer`](../bouncer) at `^0.1.0`, the Program C role for
+who an actor is and what they are allowed to do. Existing published `auth`
+versions remain available while consumers migrate, but no forwarding stub will
+ship: replace imports deliberately and use the bouncer package's documented
+provider boundaries.
+
 ```bash
 npm install @vespeneventures/auth
 ```
